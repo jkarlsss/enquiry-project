@@ -12,7 +12,6 @@ frontend/.next/
 frontend/out/
 frontend/.env.local
 frontend/.env
-frontend/.gitignore
 frontend/.vercel/
 
 # General env files
