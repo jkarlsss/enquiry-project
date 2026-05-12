@@ -1,2 +1,14 @@
+[project]
+name = "enquiry-backend"
+version = "0.1.0"
+description = "FastAPI backend for enquiry project"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]==0.113.0",
+    "pydantic==2.8.0",
+    "langgraph",
+    "google-genai"
+]
+
 [tool.fastapi]
 entrypoint = "app.main:app"
