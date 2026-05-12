@@ -40,7 +40,7 @@ def analyze_enquiry(payload: EnquiryRequest):
     try:
         result = enquiry_graph.invoke(
             {
-                "enquiry": payload.enquiry,
+                "enquiry": payload.enquiry,     
                 "is_valid": False,
                 "error": None,
                 "analysis": None,
@@ -52,10 +52,20 @@ def analyze_enquiry(payload: EnquiryRequest):
                 success=False,
                 error=result["error"],
             )
+        
+
+        if not result.get("analysis"):
+            return EnquiryResponse(
+                success=False,
+                data=None,
+                error="No analysis result was generated.",
+            )
+
 
         return EnquiryResponse(
             success=True,
             data=result["analysis"],
+            error=None,
         )
 
     except Exception as error:
